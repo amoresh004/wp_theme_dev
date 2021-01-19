@@ -1,0 +1,14 @@
+/*
+    Theme Name: Alpha Child
+    Theme URI: amreshroy.com/themes/alpha-child
+    Template: alpha
+    Description: WordPress Demo Theme For Alpha Child
+    Version: 1.0.0
+    Author: Amresh Roy
+    Author URI: amreshroy.com
+    License: GPLv2 or Later
+    Text Domain: alpha-child
+*/
+h1.heading a{
+    text-transform: uppercase;
+}

@@ -86,16 +86,16 @@ if(is_active_sidebar( "sidebar-1" )){
                                         <?php endif; ?>
                                         </p>
                                         <?php
-                                            $file = get_field( "attachment" );
-                                            if($file){
-                                                $file_url = wp_get_attachment_url( $file );
-                                                $file_thumbnail = get_field("thumbnail", $file);
-                                                if($file_thumbnail){
-                                                    $file_thumbnail_details = wp_get_attachment_image_src( $file_thumbnail );
-                                                    echo "<a target='_blank' href='{$file_url}'><img src='". esc_url( $file_thumbnail_details[0] )."' /></a>";
+                                            $alpha_file = get_field( "attachment" );
+                                            if($alpha_file){
+                                                $alpha_file_url = wp_get_attachment_url( $alpha_file );
+                                                $alpha_file_thumbnail = get_field("thumbnail", $alpha_file);
+                                                if($alpha_file_thumbnail){
+                                                    $alpha_file_thumbnail_details = wp_get_attachment_image_src( $alpha_file_thumbnail );
+                                                    echo "<a target='_blank' href='{$alpha_file_url}'><img src='". esc_url( $alpha_file_thumbnail_details[0] )."' /></a>";
                                                 }
                                                 else {
-                                                    echo "<a target='_blank' href='{$file_url}'>{$file_url}</a>";
+                                                    echo "<a target='_blank' href='{$alpha_file_url}'>{$alpha_file_url}</a>";
                                                 }
                                             }
                                         ?>

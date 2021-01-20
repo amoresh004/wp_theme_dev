@@ -1,5 +1,6 @@
 <?php
 require_once get_theme_file_path('/inc/tgm.php');
+require_once get_theme_file_path('/inc/acf-mb.php');
 if(site_url(  )=="http://wpthemedev.local"){
     define("VERSION",time());
 } else {
@@ -161,5 +162,7 @@ function alpha_highlight_search_results($text){
 add_filter('the_content', 'alpha_highlight_search_results');
 add_filter('the_excerpt', 'alpha_highlight_search_results');
 add_filter('the_title', 'alpha_highlight_search_results');
+
+add_filter('acf/settings/show_admin', '__return_false');
 
 

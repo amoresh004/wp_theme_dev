@@ -85,6 +85,7 @@ if(is_active_sidebar( "sidebar-1" )){
                                          ?>
                                         <?php endif; ?>
                                         </p>
+                                        <p>
                                         <?php
                                             $alpha_file = get_field( "attachment" );
                                             if($alpha_file){
@@ -99,7 +100,30 @@ if(is_active_sidebar( "sidebar-1" )){
                                                 }
                                             }
                                         ?>
+                                        <h5>Click On Image Or Link For Download File</h5>
                                         </p>
+
+                                        <?php if(function_exists("the_field")): ?>
+                                            <div>
+                                            <h1><?php _e("Related Posts", "alpha"); ?></h1>
+                                            <?php 
+                                            $alpha_related_posts = get_field("related_posts");
+                                            $alpha_related_posts_details = new WP_Query(array(
+                                                'post__in' => $alpha_related_posts,
+                                                'orderby' => 'post__in',
+                                            ));
+
+                                            while($alpha_related_posts_details->have_posts()){
+                                                $alpha_related_posts_details->the_post();
+                                                ?>
+                                                <h4><?php the_title( ); ?></h4>
+                                                <?php
+
+                                            }
+                                            wp_reset_query( );
+                                            ?>
+                                            </div>
+                                        <?php endif; ?>
                                     </div>
                                     <?php
                                     wp_link_pages(  );
@@ -118,8 +142,8 @@ if(is_active_sidebar( "sidebar-1" )){
                                     <p><?php echo get_the_author_meta("description"); ?></p>
                                     <?php if(function_exists("the_field")): ?>
                                     <p>
-                                        Facebook Url: <?php the_field("facebook","user_".get_the_author_meta("ID")); ?><br/>
-                                        Twitter Url: <?php the_field("twitter","user_".get_the_author_meta("ID")); ?><br/>
+                                        Facebook Url: <a href="facebook.com/amoresh004"><?php the_field("facebook","user_".get_the_author_meta("ID")); ?></a><br/>
+                                        Twitter Url: <a href="twitter.com/amrechchandraR"><?php the_field("twitter","user_".get_the_author_meta("ID")); ?></a><br/>
                                     </p>
                                     <?php endif; ?>
                                     </div>

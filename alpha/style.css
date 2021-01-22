@@ -9,6 +9,10 @@
     Text Domain: alpha
 */
 
+.header h1.heading a, h3.tagline{
+    color: orange!important;
+}
+
 h1.heading {
     font-family: "Arial Black";
     width: 700px;
@@ -16,6 +20,7 @@ h1.heading {
     margin-bottom: 70px;
     padding-bottom: 50px;
     border-bottom: 1px solid #ccc;
+    
 }
 
 h3.tagline{

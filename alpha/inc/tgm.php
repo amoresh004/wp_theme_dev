@@ -64,6 +64,11 @@ function alpha_register_required_plugins() {
 			'slug'      => 'advanced-custom-fields',
 			'required'  => false,
 		),
+		array(
+			'name'      => 'CMB2',
+			'slug'      => 'cmb2',
+			'required'  => false,
+		),
 	);
 
 	/*

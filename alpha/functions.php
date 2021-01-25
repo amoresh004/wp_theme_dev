@@ -44,6 +44,7 @@ function alpha_assets(){
     wp_enqueue_style("featherlight-style", get_stylesheet_directory_uri()."/assets/css/featherlight.min.css", null, VERSION );
     // wp_enqueue_style("bootstrap", "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
     wp_enqueue_style( "dashicon" );
+    wp_enqueue_style( "font-awesome", "//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css");
     wp_enqueue_style("alpha-main", get_stylesheet_uri(), null, VERSION );
     wp_enqueue_style( "alpha-style",get_template_directory_uri()."/assets/css/alpha.css", null, VERSION );
 

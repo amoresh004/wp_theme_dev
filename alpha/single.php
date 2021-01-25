@@ -52,78 +52,31 @@ if(is_active_sidebar( "sidebar-1" )){
                                         the_post_thumbnail( "large", "class='img-fluid'" );
                                         echo '</a>';
                                     }
-                                                
-                                    //Featherlight post thumbnail image view using internal js file
-                                    // if( has_post_thumbnail(  ) ){
-                                    //     $thumbnail_url = get_the_post_thumbnail_url( null, "large");
-                                    //     echo '<a class="popup" href=" # " data-featherlight="image">';
-                                    //     the_post_thumbnail( "large", array("class=>'img-fluid'" ));
-                                    //     echo '</a>';
-                                    // }
-                                    //Featherlight post thumbnail image view using internal js file
-
+                                    
                                     the_content(  );
-                                    if(get_post_format( ) == "image" && function_exists("the_field") ):
+                                    if(get_post_format( ) == "image" && class_exists("CMB2") ):
                                     ?>
                                     <div class="metainfo">
-                                        <strong>Camera Model:</strong> <?php the_field("camera_model"); ?></br>
+
+                                    <?php
+                                    $alpha_camera_model = get_post_meta(get_the_ID(), "_alpha_camera_model",true);
+                                    $alpha_date = get_post_meta(get_the_ID(), "_alpha_date",true);
+                                    $alpha_location = get_post_meta(get_the_ID(), "_alpha_location",true);
+                                    $alpha_licence = get_post_meta(get_the_ID(), "_alpha_licence",true);
+                                    $alpha_licence_information = get_post_meta(get_the_ID(), "_alpha_licence_information",true);
+                                    ?>
+                                        <strong>Camera Model:</strong> <?php echo esc_html($alpha_camera_model); ?></br>
                                         <strong>Location:</strong>
                                         <?php
-                                        $alpha_location = get_field("location");
                                         echo esc_html( $alpha_location );
                                         ?></br>
-                                        <strong>Date:</strong> <?php the_field("date"); ?></br>
-                                        <?php if(get_field("licensed")):?>
-                                        <strong>Licence Information:</strong>
+                                        <strong>Date:</strong> <?php echo esc_html( $alpha_date ); ?></br>
+                                        <?php if($alpha_licence):?>
+                                            <strong>Licence Information:</strong>
                                         <?php
-                                        echo apply_filters( "the_content", get_field("licence_information") );
+                                        echo apply_filters( "the_content", $alpha_licence_information );
                                          endif; ?>
                                         <p>
-                                        <?php 
-                                         $alpha_image = get_field("image");
-                                         $alpha_image_details = wp_get_attachment_image_src( $alpha_image, "alpha_square");
-                                            echo "<img src='". esc_url( $alpha_image_details[0] )."'/>";
-                                         ?>
-                                        <?php endif; ?>
-                                        </p>
-                                        <p>
-                                            <?php
-                                            $alpha_file = get_field( "attachment" );
-                                            if($alpha_file){
-                                                $alpha_file_url = wp_get_attachment_url( $alpha_file );
-                                                $alpha_file_thumbnail = get_field("thumbnail", $alpha_file);
-                                                if($alpha_file_thumbnail){
-                                                    $alpha_file_thumbnail_details = wp_get_attachment_image_src( $alpha_file_thumbnail );
-                                                    echo "<a target='_blank' href='{$alpha_file_url}'><img src='". esc_url( $alpha_file_thumbnail_details[0] )."' /></a>";
-                                                }
-                                                else {
-                                                    echo "<a target='_blank' href='{$alpha_file_url}'>{$alpha_file_url}</a>";
-                                                }
-                                            }
-                                        ?>
-                                        <h5>Click On Image Or Link For Download File</h5>
-                                        </p>
-
-                                        <?php if(function_exists("the_field")): ?>
-                                        <div>
-                                            <h1><?php _e("Related Posts", "alpha"); ?></h1>
-                                            <?php 
-                                            $alpha_related_posts = get_field("related_posts");
-                                            $alpha_related_posts_details = new WP_Query(array(
-                                                'post__in' => $alpha_related_posts,
-                                                'orderby' => 'post__in',
-                                            ));
-
-                                            while($alpha_related_posts_details->have_posts()){
-                                                $alpha_related_posts_details->the_post();
-                                                ?>
-                                            <h4><?php the_title( ); ?></h4>
-                                            <?php
-
-                                            }
-                                            wp_reset_query( );
-                                            ?>
-                                        </div>
                                         <?php endif; ?>
                                     </div>
                                     <?php

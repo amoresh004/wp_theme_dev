@@ -1,6 +1,7 @@
 <?php
 require_once get_theme_file_path('/inc/tgm.php');
 require_once get_theme_file_path('/inc/acf-mb.php');
+require_once get_theme_file_path('/inc/cmb2-mb.php');
 if(site_url(  )=="http://wpthemedev.local"){
     define("VERSION",time());
 } else {

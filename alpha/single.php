@@ -76,8 +76,14 @@ if(is_active_sidebar( "sidebar-1" )){
                                         <?php
                                         echo apply_filters( "the_content", $alpha_licence_information );
                                          endif; ?>
-                                        <p>
                                         <?php endif; ?>
+                                        <p>
+                                        <?php
+                                            $alpha_image = get_post_meta(get_the_ID(),"_alpha_image_id", true);
+                                            $alpha_image_details = wp_get_attachment_image_src($alpha_image, "alpha-square");
+                                            echo "<img src='".esc_url($alpha_image_details[0])."' />";
+                                        ?>
+                                        </p>
                                     </div>
                                     <?php
                                     wp_link_pages(  );

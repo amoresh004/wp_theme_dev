@@ -45,6 +45,12 @@ function cmb2_add_image_info_metabox() {
 		'name' => __( 'Location', 'alpha' ),
 		'id' => $prefix . 'location',
 		'type' => 'text',
+    ) );
+    
+    $cmb->add_field( array(
+		'name' => __( 'Image', 'alpha' ),
+		'id' => $prefix . 'image',
+		'type' => 'file',
 	) );
 
 }
